@@ -1,0 +1,612 @@
+/* Config gerais e reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1A1A1A;
+    color: #F1FAEE;
+    font-family: 'Merriweather', serif; 
+}
+
+/* Componentes MOBILE FIRST */
+/* Organiza todos os componentes da header do site (posição, alinhamento e faz ele ficar a frente de outros elementos*/
+/* A atribuição de uma classe permite altera-la no css */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px;
+    position: fixed;
+    background-color: #1A1A1A;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+/* Componentes do menu hamburguer */
+.nav-links-desktop.ativo {
+    display: block;
+    position: absolute;
+    top: 80px;
+    right: 24px;
+    background-color: #2A2A2A;
+    width: 200px;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #AC2020;
+}
+
+.nav-links-desktop.ativo a {
+    display: block;
+    margin-bottom: 15px;
+}
+
+.header-logo {
+    height: 40px;
+}
+
+.nav-links-desktop {
+    display: none; /* Esconde o menu hamburguer para celular */
+}
+.nav-links-desktop.ativo a {
+    color: #F1FAEE;
+    text-decoration: none;
+}
+
+/* Estilo do botão de menu hambúrguer */
+.menu-hamburguer {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    padding: 0;
+}
+
+.hamburguer-barra {
+    position: relative;
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: #F1FAEE;
+    border-radius: 2px;
+}
+
+.hamburguer-barra::before,
+.hamburguer-barra::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #F1FAEE;
+    border-radius: 2px;
+}
+
+.hamburguer-barra::before {
+    top: -8px;
+}
+
+.hamburguer-barra::after {
+    bottom: -8px;
+}
+
+/* secao hero */
+
+.secao-hero {
+    background-image: url('imgs/kratos hero.jpeg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 10%;
+    /* Conteudo da secao hero com a alteração especifica de fazer o texto e o botao de adquirir agora ficarem mais a esquerda para aproveitar a imagem do kratos */
+}
+
+.botoes-compra {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 24px;
+    align-items: center;
+}
+
+.botoes-compra .btn-principal,
+.botoes-compra .btn-secundario {
+    width: 100%;
+    max-width: 280px;
+    padding: 10px 16px;
+    font-size: 14px;
+    text-align: center;
+}
+.btn-secundario {
+    color: #F1FAEE; 
+    background-color: transparent;
+    border: 2px solid #AC2020;
+    padding: 12px 32px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-family: 'Cinzel', serif;
+    font-weight: 700; 
+    text-transform: uppercase;
+    display: inline-block;
+    margin-top: 24px;
+    transition: all 0.3s ease;
+    /* Conteudo do botão secundario (Compra para pc) */
+}
+
+.btn-principal {
+    background-color: #AC2020;
+    color: #F1FAEE; 
+    padding: 12px 32px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-family: 'Cinzel', serif;
+    font-weight: 700; 
+    text-transform: uppercase;
+    display: inline-block;
+    margin-top: 24px;
+    transition: all 0.3s ease;
+    /* Conteudo do botao principal */
+}
+
+.btn-principal:hover {
+    filter: brightness(1.2);
+    transform: scale(1.05);
+    /* Função muito legal que faz o botao aumentar o tamanho e o brilhor quando o mouse é passado acima dele */
+}
+/* Seção jogos */
+
+.saga-container {
+    padding: 48px 0;
+}
+
+.saga-titulo {
+    font-family: 'Cinzel', serif;
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.carrossel-jogos {
+    display: flex;
+    overflow-x: auto; /* Cria a rolagem horizontal */
+    gap: 20px; 
+    padding: 0 24px; 
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none; 
+}
+
+.carrossel-jogos::-webkit-scrollbar {
+    display: none;
+}
+/* Esconde a barra de rolagem */
+
+.card-jogo {
+    flex: 0 0 70%;
+    background-color: #2A2A2A;
+    border: 1px solid #444;
+    border-radius: 8px;
+    overflow: hidden;
+    scroll-snap-align: start;
+}
+
+.card-jogo-imagem {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+}
+
+.card-jogo-conteudo {
+    padding: 16px;
+    text-align: center;
+}
+
+.card-jogo-titulo {
+    font-family: 'Cinzel', serif;
+    font-size: 18px;
+    margin-bottom: 16px;
+}
+
+.btn-detalhes {
+    background-color: transparent;
+    border: 1px solid #AC2020;
+    color: #F1FAEE;
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-family: 'Cinzel', serif;
+    transition: all 0.3s ease;
+}
+
+.btn-detalhes:hover {
+    background-color: #AC2020;
+    color: white;
+}
+
+/* Seção dos personagens */
+.personagens-container {
+    padding: 48px 0;
+}
+
+.personagens-titulo {
+    font-family: 'Cinzel', serif;
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.carrossel-personagens {
+    display: flex;
+    overflow-x: auto;
+    gap: 24px;
+    padding: 0 24px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.carrossel-personagens::-webkit-scrollbar {
+    display: none;
+}
+/* Essa pequena linha de codigo faz a barra de scrollar nao aparecer, poluindo menos a tela */
+.card-personagem {
+    position: relative;
+    flex: 0 0 140px; 
+    text-align: center;
+    scroll-snap-align: start;
+}
+
+.personagem-avatar {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%; /* Isso transforma o quadrado em um círculo perfeito */
+    overflow: hidden;
+    border: 2px solid #AC2020;
+    margin-bottom: 16px;
+}
+
+.freya-avatar-pos {
+    object-position: 50% 10%; /* Ajuste o segundo valor! */
+}
+.personagem-imagem {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Faz a imagem preencher o circulo */
+}
+
+.personagem-nome {
+    font-family: 'Cinzel', serif;
+    font-size: 16px;
+}
+
+.personagem-descricao {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #F1FAEE;
+    padding: 10px 5px;
+    font-size: 14px;
+    opacity: 0; /* Fica escondido ate passar o mouse */
+    transform: translateY(-100%);
+    transition: all 0.3s ease-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
+
+.card-personagem:hover .personagem-descricao {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.card-personagem:hover .personagem-imagem {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-out;
+}
+
+
+/* Epilogo */
+.secao-final {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('imgs/Kratos e Atreus 4k.png');
+    /* Faz a imagem do fundo ficar levemente acinzentada */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; 
+    
+    min-height: 100vh;
+    width: 100%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 48px 24px;
+}
+
+.secao-final-conteudo {
+    max-width: 90%; 
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 24px;
+    border-radius: 8px;
+    text-align: center;
+    /* Permite escrever o texto dentro da imagem */
+}
+
+.secao-final-titulo {
+    font-family: 'Cinzel', serif;
+    font-size: 36px;
+    margin-bottom: 24px;
+}
+
+.secao-final-sinopse {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #ddd;
+}
+
+/* Rodapé */
+
+.footer {
+    padding: 48px 24px;
+    text-align: center;
+    border-top: 1px solid #333; 
+    margin-top: 64px;
+}
+
+.footer-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.footer-logos img {
+    height: 50px;
+}
+
+.footer-social img {
+    height: 50px;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+
+.footer-social img:hover {
+    opacity: 1;
+}
+
+.copyright {
+    font-size: 12px;
+    color: #888;
+    max-width: 600px;
+    margin: 0 auto 32px auto;
+}
+
+.rating-logo {
+    height: 60px;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 100;
+}
+
+
+.modal.ativo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.modal-thumbnail {
+    width: 100%;
+    height: 200px;
+    
+    object-fit: cover;
+    object-position: center;
+
+    display: block;
+    border-radius: 6px;
+    margin-bottom: 24px;
+}
+
+.modal-video-container a {
+    position: relative;
+    display: block;
+    text-decoration: none;
+}
+
+.modal-video-container a::after {
+    content: '▶';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 40px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    padding: 10px 15px 10px 18px;
+    pointer-events: none;
+}
+
+.btn-fechar {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background: none;
+    border: none;
+    color: #F1FAEE;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 110;
+    transition: color 0.3s ease;
+}
+
+.btn-fechar:hover {
+    color: #AC2020;
+}
+
+/* Design para desktop */
+
+@media (min-width: 768px) {
+    /* Essa função é a principal para verificar se o menu sanduiche deve ou nao existir, caso a tela seja maior do que 768px de largura as configurações mudam para as de baixo */
+
+
+
+    .menu-hamburguer {
+        display: none;
+    }
+    /* Esconde o menu hamburguer no comp */
+    .nav-links-desktop {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+    }
+
+    .nav-links-desktop a {
+        color: #F1FAEE;
+        text-decoration: none;
+        font-family: 'Cinzel', serif;
+        font-size: 16px;
+        padding: 8px;
+        position: relative;
+    }
+
+    .nav-links-desktop a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0%;
+        height: 1px;
+        background: #AC2020;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .nav-links-desktop a:hover::after {
+        left: 0;
+        width: 100%;
+    }
+    /* Caracteristicas dos links da header, o efeito colocado foi de uma barra vermelha que aumenta com o passar do mouse (hovering) */
+
+    .btn-comprar-nav {
+        background-color: #AC2020;
+        padding: 10px 20px;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+
+    .btn-comprar-nav:hover {
+        filter: brightness(1.2);
+    }
+    /* Efeito parecido com o ultimo botao mas esse nao aumenta de tamanho */
+
+    .saga-container {
+        padding: 64px 80px;
+    }
+
+    .carrossel-jogos {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        overflow-x: hidden;
+        scroll-snap-type: none;
+    }
+
+    .card-jogo {
+        flex: none; 
+        width: 100%;
+    }
+    .carrossel-personagens {
+        overflow-x: hidden;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .card-personagem {
+        flex-basis: 160px;
+    }
+
+    .personagem-avatar {
+        width: 160px;
+        height: 160px;
+    }
+
+    .personagem-nome {
+        font-size: 18px;
+    }
+
+
+    .modal-content {
+        position: relative;
+        padding: 20px;
+        max-width: 600px;
+        width: 100%;
+    }
+
+    .secao-final {
+        justify-content: flex-start;
+        padding-left: 10%;
+        text-align: left;
+    }
+
+    .secao-final-conteudo {
+        max-width: 500px;
+        text-align: left;
+    }
+
+    .secao-final-titulo {
+        font-size: 48px;
+    }
+    .secao-final-sinopse {
+        font-size: 20px;
+    }
+    .footer {
+        padding: 64px 80px; /* Aumenta o espaçamento */
+    }
+
+    .footer-content {
+        display: flex;
+        justify-content: space-between; /* Coloca os itens nas extremidades */
+        align-items: center;
+        text-align: left; /* Alinha o texto à esquerda */
+    }
+    .footer-social img {
+        height: 32px;
+    }
+
+
+    .footer-logos img {
+        height: 50px;
+    }
+
+    .rating-logo {
+        height: 70px;
+    }
+    .footer-logos, .footer-social, .copyright {
+        margin-bottom: 0;
+    }
+}
+
